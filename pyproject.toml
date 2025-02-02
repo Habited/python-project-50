@@ -20,4 +20,4 @@ build-backend = "hatchling.build"
 packages = ["difference_calculator"]
 
 [project.scripts]
-gendiff-h = "difference_calculator.scripts.main:main"
+gendiff = "difference_calculator.scripts.main:main"
