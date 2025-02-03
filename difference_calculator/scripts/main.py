@@ -1,8 +1,8 @@
-from difference_calculator.gendiff import gendiff
+from difference_calculator.gendiff import gendiff_help
 
 
 def main():
-    gendiff()
+    gendiff_help()
 
 
 if __name__ == "__main__":
