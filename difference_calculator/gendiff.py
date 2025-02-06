@@ -1,15 +1,39 @@
 import argparse
+import json
 
 
-def gendiff_help():
-    parser = argparse.ArgumentParser(prog='gendiff',
-                                     description='''Compares two
+def generate_diff(file1_path, file2_path):
+    with open(file1_path) as read_file:
+        file1_path = json.load(read_file)
+    with open(file2_path) as read_file:
+        file2_path = json.load(read_file)
+    result = {}
+    for key in file1_path:
+        if key in file2_path and file1_path[key] == file2_path[key]:
+            result[f'   {key}'] = file1_path[key]
+        elif key in file2_path and file1_path[key] != file2_path[key]:
+            result[f'- {key}'] = file1_path[key]
+            result[f'+ {key}'] = file2_path[key]
+        else:
+            result[f'- {key}'] = file1_path[key]
+    for key in file2_path:
+        if key not in file1_path:
+            result[f'+ {key}'] = file2_path[key]
+    res = json.dumps(result)[1: -1]
+    res = res.replace('"', '').split(',')
+    res.sort(key=lambda res: res[3])
+    res.insert(0, '{')
+    res.append('}')
+    res = '\n'.join(res)
+    return res
+
+
+parser = argparse.ArgumentParser(description='''Compares two
                                                  configuration
                                                  files and shows
                                                  a difference.''',)
-    parser.add_argument('-f', "--format", metavar="FORMAT", 
-                        help="set format of output")
-    parser.add_argument("first_file")
-    parser.add_argument("second_file")
-    parser.print_help()
-
+parser.add_argument('-f', "--format", metavar="FORMAT",
+                    help="set format of output")
+parser.add_argument("first_file")
+parser.add_argument("second_file")
+args = parser.parse_args()

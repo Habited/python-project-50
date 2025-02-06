@@ -21,3 +21,4 @@ packages = ["difference_calculator"]
 
 [project.scripts]
 gendiff = "difference_calculator.scripts.main:main"
+gendiffa = "difference_calculator.gendiff:gendiff"

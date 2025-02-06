@@ -10,3 +10,4 @@ def read_json_files(file):
 def parse_json_files(file, data):
     with open(file, "w") as write_file:
         return json.dump(data, write_file)
+
