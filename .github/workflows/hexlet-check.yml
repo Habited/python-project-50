@@ -1,4 +1,4 @@
-name: Python CI
+name: hexlet-check
 
 on:
   - push
@@ -20,7 +20,7 @@ jobs:
           make install
       - name: Run linter and pytest
         run: |
-          make check
+          make lint
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v9.0.0
         if: github.ref_name == 'main'
