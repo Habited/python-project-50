@@ -1,4 +1,5 @@
 import argparse
+
 from difference_calculator import json_util
 
 
