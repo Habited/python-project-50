@@ -10,6 +10,7 @@ repository = "https://github.com/Habited/python-project-50"
 requires-python = ">=3.12"
 dependencies = [
     "argparse>=1.4.0",
+    "pytest-cov>=6.0.0",
 ]
 
 [build-system]

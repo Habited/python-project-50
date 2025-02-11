@@ -8,3 +8,6 @@ lint-fix:
 	uv run ruff check --fix .
 install:
 	pip install uv
+test-coverage:
+	uv add pytest-cov
+	uv run pytest --cov
