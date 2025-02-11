@@ -4,6 +4,8 @@ gendiff-h:
 	uv run gendiff -h
 check:
 	uv run ruff check .
+pytest:
+	uv run pytest
 lint-fix:
 	uv run ruff check --fix .
 install:
