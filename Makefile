@@ -1,5 +1,5 @@
 gendiff:
-	uv run gendiff
+	uv run gendiff file1.json file2.json
 gendiff-h:
 	uv run gendiff -h
 lint:
