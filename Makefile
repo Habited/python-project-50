@@ -1,15 +1,10 @@
-gendiff:
-	uv run gendiff file1.json file2.json
-gendiff-h:
-	uv run gendiff -h
+install:
+	uv sinc
 lint:
 	uv run ruff check .
-pytest:
+test:
 	uv run pytest
 lint-fix:
 	uv run ruff check --fix .
-install:
-	pip install uv
 test-coverage:
-	uv add pytest-cov
-	uv run pytest --cov
+	uv run pytest --cov=hexlet_python_package --cov-report xml
