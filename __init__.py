@@ -1,6 +1,7 @@
-from difference_calculator.gendiff import generate_diff
-from difference_calculator.json_util import read_json_files
-from tests.test_gendiff import test_generate_diff
+import difference_calculator.gendiff
+from difference_calculator import json_util
+import tests.test_gendiff
+from pathlib import Path
 
 
-__all__ = (generate_diff, read_json_files, test_generate_diff)
+__all__ = (difference_calculator.gendiff, json_util, tests.test_gendiff, Path)

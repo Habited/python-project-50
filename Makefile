@@ -2,7 +2,7 @@ gendiff:
 	uv run gendiff
 gendiff-h:
 	uv run gendiff -h
-check:
+lint:
 	uv run ruff check .
 pytest:
 	uv run pytest

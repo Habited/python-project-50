@@ -6,12 +6,8 @@ def get_test_data_path(filename):
     return Path(__file__).parent / 'test_data' / filename
 
 
-def read_file(filename):
-    return get_test_data_path(filename).read_text()
-
-
-before_file1_json = read_file('file1.json')
-before_file2_json = read_file('file2.json')
+before_file1_json = get_test_data_path('file1.json')
+before_file2_json = get_test_data_path('file2.json')
 actual = generate_diff(before_file1_json, before_file2_json)
 
 

@@ -1,5 +1,4 @@
 import argparse
-
 from difference_calculator import json_util
 
 
@@ -33,6 +32,11 @@ parser = argparse.ArgumentParser(description='''Compares two
                                                  a difference.''',)
 parser.add_argument('-f', "--format", metavar="FORMAT",
                     help="set format of output")
-parser.add_argument("first_file")
-parser.add_argument("second_file")
+parser.add_argument("file1_path")
+parser.add_argument("file2_path")
 args = parser.parse_args()
+
+
+def run_diff():
+    print(generate_diff(file1_path=args.file1_path,
+                        file2_path=args.file2_path))
