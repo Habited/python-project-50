@@ -1,5 +1,6 @@
 install:
-	uv sync
+	pip install uv
+	uv sync 
 lint:
 	uv run ruff check .
 test:
