@@ -1,5 +1,6 @@
-from difference_calculator.gendiff import generate_diff
 from pathlib import Path
+
+from difference_calculator.gendiff import generate_diff
 
 
 def get_test_data_path(filename):

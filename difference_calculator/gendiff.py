@@ -23,4 +23,3 @@ def generate_diff(file1_path, file2_path):
     res.append('}')
     res = '\n'.join(res)
     return res
-
