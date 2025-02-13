@@ -1,4 +1,4 @@
-from difference_calculator.argparse import run_diff
+from difference_calculator.parser import run_diff
 
 
 def main():

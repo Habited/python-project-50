@@ -8,11 +8,11 @@ parser = argparse.ArgumentParser(description='''Compares two
                                                  a difference.''',)
 parser.add_argument('-f', "--format", metavar="FORMAT",
                     help="set format of output")
-parser.add_argument("file1_path")
-parser.add_argument("file2_path")
+parser.add_argument("file1")
+parser.add_argument("file2")
 args = parser.parse_args()
 
 
 def run_diff():
-    print(generate_diff(file1_path=args.file1_path,
-                        file2_path=args.file2_path))
+    print(generate_diff(args.file1,
+                        args.file2))
