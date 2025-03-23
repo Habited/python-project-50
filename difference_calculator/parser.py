@@ -1,6 +1,6 @@
 import argparse
 
-from difference_calculator.gendiff import generate_diff
+from difference_calculator import gendiff
 
 parser = argparse.ArgumentParser(description='''Compares two
                                                  configuration
@@ -14,6 +14,5 @@ args = parser.parse_args()
 
 
 def run_diff():
-    print(generate_diff(args.file_1,
-                        args.file_2))
-
+    print(gendiff.generate_diff(args.file_1,
+                                args.file_2))

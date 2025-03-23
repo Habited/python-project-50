@@ -1,15 +1,15 @@
-from difference_calculator import diff
-from difference_calculator import utilites
+from difference_calculator import diff, formater, utilites
 
 
-def generate_diff(file1, file2):
-    file_1 = utilites.get_the_file_path(file1)
-    file_2 = utilites.get_the_file_path(file2)
-    res = []
-    for key1, value1 in file_1.items():
-        if diff.get_diff(file_1) in file_2:
-            res.append(f'{key1}:\n{value1}')
-        else:
-            res.append(f'- {key1}: \n{value1}')
-    res = '\n'.join(res)
-    print(res)
+def generate_diff(file_1, file_2):
+    file1_path: str = utilites.get_the_file_path(file_1)
+    file2_path: str = utilites.get_the_file_path(file_2)
+
+    dict1: dict = utilites.get_a_python_object(file1_path)
+    dict2: dict = utilites.get_a_python_object(file2_path)
+
+    updated_dict = diff.get_diff(dict1, dict2)
+
+    form = formater.stalish(updated_dict)
+
+    return form
