@@ -1,38 +1,117 @@
-from pathlib import Path
-
-from difference_calculator.gendiff import generate_diff
-
-
-def get_test_data_path(filename):
-    return Path(__file__).parent / 'test_data' / filename
-
-
-before_file1_json = get_test_data_path('file1.json')
-before_file2_json = get_test_data_path('file2.json')
-actual_json = generate_diff(before_file1_json, before_file2_json)
-
-before_file1_yaml = get_test_data_path('file1.yaml')
-before_file2_yaml = get_test_data_path('file2.yaml')
-actual_yaml = generate_diff(before_file1_yaml, before_file2_yaml)
+from difference_calculator import gendiff
 
 
 def test_generate_diff_json():
-    assert actual_json == '''{
- - follow: false
-   host: hexlet.io
- - proxy: 123.234.53.22
- - timeout: 50
- + timeout: 20
- + verbose: true
+    assert gendiff.generate_diff('file1.json', 'file2.json') == '''{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
 }'''
 
 
 def test_generate_diff_yaml():
-    assert actual_yaml == '''{
- - follow: false
-   host: hexlet.io
- - proxy: 123.234.53.22
- - timeout: 50
- + timeout: 20
- + verbose: true
+    assert gendiff.generate_diff('file1.yaml', 'file2.yaml') == '''{
+  - follow: false
+    host: hexlet.io
+  - proxy: 123.234.53.22
+  - timeout: 50
+  + timeout: 20
+  + verbose: true
+}'''
+
+
+def test_generate_diff_nested_yaml():
+    assert gendiff.generate_diff('file3.yaml', 'file4.yaml') == '''{
+    common: {
+      + follow: false
+        setting1: Value 1
+      - setting2: 200
+      - setting3: true
+      + setting3: null
+      + setting4: blah blah
+      + setting5: {
+            key5: value5
+        }
+        setting6: {
+            doge: {
+              - wow: 
+              + wow: so much
+            }
+            key: value
+          + ops: vops
+        }
+    }
+    group1: {
+      - baz: bas
+      + baz: bars
+        foo: bar
+      - nest: {
+            key: value
+        }
+      + nest: str
+    }
+  - group2: {
+        abc: 12345
+        deep: {
+            id: 45
+        }
+    }
+  + group3: {
+        deep: {
+            id: {
+                number: 45
+            }
+        }
+        fee: 100500
+    }
+}'''
+
+
+def test_generate_diff_nested_json():
+    assert gendiff.generate_diff('file3.json', 'file4.json') == '''{
+    common: {
+      + follow: false
+        setting1: Value 1
+      - setting2: 200
+      - setting3: true
+      + setting3: null
+      + setting4: blah blah
+      + setting5: {
+            key5: value5
+        }
+        setting6: {
+            doge: {
+              - wow: 
+              + wow: so much
+            }
+            key: value
+          + ops: vops
+        }
+    }
+    group1: {
+      - baz: bas
+      + baz: bars
+        foo: bar
+      - nest: {
+            key: value
+        }
+      + nest: str
+    }
+  - group2: {
+        abc: 12345
+        deep: {
+            id: 45
+        }
+    }
+  + group3: {
+        deep: {
+            id: {
+                number: 45
+            }
+        }
+        fee: 100500
+    }
 }'''

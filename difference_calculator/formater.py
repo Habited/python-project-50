@@ -1,15 +1,37 @@
-def stalish(dictionary) -> str:
-    result = ''
-    for key, value in dictionary.items():
-        if 'added' in value:
-            result += f'+ {key}: {value[0]}\n'
-        elif 'nested' in value:
-            result += f'{key}:\n'
-        elif 'deleted' in value:
-            result += f'- {key}: {value[0]}\n'
-        elif 'changet' in value:
-            result += f'''- {key}: {value[0]}\n+ {key}: {value[1],
-                                                          {value[-1]}}\n'''
+from typing import Dict
+
+from difference_calculator import utilites
+
+
+def stalish(difference_dict: Dict[str, Dict], indent: str = '') -> str:
+    '''Форматирует словарь с различиями в формат stalish.
+
+    Args:
+        difference_dict: Словарь с различиями
+        indent: Текущий отступ
+
+    Returns:
+        Строковое представление difference_dict в формате stalish 
+    '''
+
+    lines = []
+    for key, node in difference_dict.items():
+        node_type = node['type']
+        value = node.get('value')
+        children = node.get('children')
+
+        if node_type == 'nested':
+            lines.append(f"{indent}    {key}: {{")
+            lines.append(stalish(children, indent + '    '))
+            lines.append(f"{indent}    }}")
+        elif node_type == 'added':
+            lines.append(f"{indent}  + {key}: {utilites.stringify(value, indent + '    ')}")
+        elif node_type == 'removed':
+            lines.append(f"{indent}  - {key}: {utilites.stringify(value, indent + '    ')}")
+        elif node_type == 'changed':
+            lines.append(f"{indent}  - {key}: {utilites.stringify(node['old_value'], indent + '    ')}")
+            lines.append(f"{indent}  + {key}: {utilites.stringify(node['new_value'], indent)}")
         else:
-            result += f'  {key}: {value[0]}\n'
-    return result
+            lines.append(f"{indent}    {key}: {utilites.stringify(value, indent + '    ')}")
+
+    return '\n'.join(lines)
