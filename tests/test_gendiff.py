@@ -115,3 +115,39 @@ def test_generate_diff_nested_json():
         fee: 100500
     }
 }'''
+
+
+def test_generate_diff_plain_json():
+    assert gendiff.generate_diff(
+        'file3.json',
+        'file4.json', 
+        format_name='plain') == ('''Property 'common.follow' was added '''
+                                 '''with value: false
+Property 'common.setting2' was removed
+Property 'common.setting3' was updated. From true to null
+Property 'common.setting4' was added with value: 'blah blah'
+Property 'common.setting5' was added with value: [complex value]
+Property 'common.setting6.doge.wow' was updated. From '' to 'so much'
+Property 'common.setting6.ops' was added with value: 'vops'
+Property 'group1.baz' was updated. From 'bas' to 'bars'
+Property 'group1.nest' was updated. From [complex value] to 'str'
+Property 'group2' was removed
+Property 'group3' was added with value: [complex value]''')
+
+
+def test_generate_diff_plain_yaml():
+    assert gendiff.generate_diff(
+        'file3.yaml',
+        'file4.yaml', 
+        format_name='plain') == ('''Property 'common.follow' was added '''
+                                 '''with value: false
+Property 'common.setting2' was removed
+Property 'common.setting3' was updated. From true to null
+Property 'common.setting4' was added with value: 'blah blah'
+Property 'common.setting5' was added with value: [complex value]
+Property 'common.setting6.doge.wow' was updated. From '' to 'so much'
+Property 'common.setting6.ops' was added with value: 'vops'
+Property 'group1.baz' was updated. From 'bas' to 'bars'
+Property 'group1.nest' was updated. From [complex value] to 'str'
+Property 'group2' was removed
+Property 'group3' was added with value: [complex value]''')

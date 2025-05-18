@@ -52,17 +52,3 @@ def get_diff(old_dict: Dict, new_dict: Dict, ) -> Dict:
                 "new_value": new_val
             }
     return diff
-
-
-def stringify(value: Any, indent: str = '') -> str:
-    if value is None:
-        return 'null'
-    if isinstance(value, bool):
-        return str(value).lower()
-    if not isinstance(value, dict):
-        return str(value)
-    lines = []
-    for key, val in value.items():
-        lines.append(f"{indent}    {key}: {stringify(val, indent + '    ')}")
-
-    return '{\n' + '\n'.join(lines) + '\n' + indent + '}'
