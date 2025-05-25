@@ -10,6 +10,9 @@
 #### ascinema plain_diff
 [![asciicast](https://asciinema.org/a/Jmfhk6OsD8kRgPBJbsyz6cchU.svg)](https://asciinema.org/a/Jmfhk6OsD8kRgPBJbsyz6cchU)
 
+#### ascinema json_diff
+[![asciicast](https://asciinema.org/a/zvbvGyfWC6g795okQT3igflUo.svg)](https://asciinema.org/a/zvbvGyfWC6g795okQT3igflUo)
+
 ### Test Coverage Badge
 <a href="https://codeclimate.com/github/Habited/python-project-50/test_coverage"><img src="https://api.codeclimate.com/v1/badges/e06a88c9ead2b428aabf/test_coverage" /></a>
 

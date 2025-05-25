@@ -14,9 +14,8 @@ def main():
         help="set format of output")
     parser.add_argument("file_1", help='specify the path to the file')
     parser.add_argument("file_2", help='specify the path to the file')
-    parser.add_argument(
-        "format_name", 
-        help='specify the type of output data: stalish or plain')
+    parser.add_argument("format_name", 
+                        help='specify the type of output data')
     args = parser.parse_args()
 
     print(generate_diff(args.file_1, args.file_2, args.format_name))

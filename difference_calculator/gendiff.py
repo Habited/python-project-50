@@ -1,3 +1,5 @@
+import json
+
 from difference_calculator import plain, stalish, utilites
 
 
@@ -11,5 +13,5 @@ def generate_diff(file_1, file_2, format_name='stalish') -> str:
     elif format_name == 'plain':
         update = plain.plain(difference_dict)
         return update
-    elif format_name == 'diff_dict':
-        return difference_dict
+    elif format_name == 'json':
+        return json.dumps(difference_dict, indent=4)
