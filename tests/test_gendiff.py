@@ -50,7 +50,7 @@ def test_generate_diff_plain_yaml():
 
 
 def test_generate_diff_json_yaml():
-    file = open('tests/format_json.py', 'r')
+    file = open('tests/format_json.txt', 'r')
     assert gendiff.generate_diff(
         'file3.yaml',
         'file4.yaml', 
@@ -58,7 +58,7 @@ def test_generate_diff_json_yaml():
 
 
 def test_generate_diff_format_json():
-    file = open('tests/format_json.py', 'r')
+    file = open('tests/format_json.txt', 'r')
     assert gendiff.generate_diff(
         'file3.json',
         'file4.json',
