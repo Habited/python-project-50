@@ -1,6 +1,5 @@
 import argparse
-from . import gendiff
-from . import utilites
 
+from . import gendiff, utilites
 
 __all__ = (argparse, gendiff, utilites)
