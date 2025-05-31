@@ -8,4 +8,4 @@ test:
 lint-fix:
 	uv run ruff check --fix .
 test-coverage:
-	uv run pytest --cov=difference_calculator --cov-report xml
+	uv run pytest --cov=gendiff --cov-report xml

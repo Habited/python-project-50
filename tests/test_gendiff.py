@@ -1,4 +1,4 @@
-from difference_calculator import gendiff
+from gendiff import gendiff
 
 
 def test_generate_diff_json():
@@ -24,17 +24,17 @@ def test_generate_diff_yaml():
 
 
 def test_generate_diff_nested_yaml():
-    file = open('tests/format_stalish.txt', 'r')
+    file = open('tests/test_data/format_stalish.txt', 'r')
     assert gendiff.generate_diff('file3.yaml', 'file4.yaml') == file.read()
 
 
 def test_generate_diff_nested_json():
-    file = open('tests/format_stalish.txt', 'r')
+    file = open('tests/test_data/format_stalish.txt', 'r')
     assert gendiff.generate_diff('file3.json', 'file4.json') == file.read()
 
 
 def test_generate_diff_plain_json():
-    file = open('tests/format_plain.txt', 'r')
+    file = open('tests/test_data/format_plain.txt', 'r')
     assert gendiff.generate_diff(
         'file3.json',
         'file4.json', 
@@ -42,7 +42,7 @@ def test_generate_diff_plain_json():
 
 
 def test_generate_diff_plain_yaml():
-    file = open('tests/format_plain.txt', 'r')
+    file = open('tests/test_data/format_plain.txt', 'r')
     assert gendiff.generate_diff(
         'file3.yaml',
         'file4.yaml', 
@@ -50,7 +50,7 @@ def test_generate_diff_plain_yaml():
 
 
 def test_generate_diff_json_yaml():
-    file = open('tests/format_json.txt', 'r')
+    file = open('tests/test_data/format_json.txt', 'r')
     assert gendiff.generate_diff(
         'file3.yaml',
         'file4.yaml', 
@@ -58,7 +58,7 @@ def test_generate_diff_json_yaml():
 
 
 def test_generate_diff_format_json():
-    file = open('tests/format_json.txt', 'r')
+    file = open('tests/test_data/format_json.txt', 'r')
     assert gendiff.generate_diff(
         'file3.json',
         'file4.json',

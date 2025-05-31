@@ -1,6 +1,9 @@
 ### Hexlet tests and linter status
 [![Python CI](https://github.com/Habited/python-project-50/actions/workflows/pyci.yml/badge.svg)](https://github.com/Habited/python-project-50/actions/workflows/pyci.yml)
 
+### SonarQube Cloud
+[![SonarQube Cloud](https://sonarcloud.io/images/project_badges/sonarcloud-light.svg)](https://sonarcloud.io/summary/new_code?id=Habited_python-project-50)
+
 #### ascinema generate_diff
 [![asciicast](https://asciinema.org/a/QP0mOrESNRu3byHMIFUjm5A1I.svg)](https://asciinema.org/a/QP0mOrESNRu3byHMIFUjm5A1I)
 

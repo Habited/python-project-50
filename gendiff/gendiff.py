@@ -1,6 +1,6 @@
 import json
 
-from difference_calculator import plain, stalish, utilites
+from . import plain, stalish, utilites
 
 
 def generate_diff(file_1, file_2, format_name='stalish') -> str:
