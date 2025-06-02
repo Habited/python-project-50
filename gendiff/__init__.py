@@ -1,5 +1,5 @@
 import argparse
 
-from gendiff import gendiff, utilites
+from gendiff.gendiff import generate_diff, utilites
 
-__all__ = (argparse, gendiff.generate_diff, utilites)
+__all__ = (argparse, generate_diff, utilites)

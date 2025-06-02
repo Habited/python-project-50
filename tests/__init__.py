@@ -1,4 +1,4 @@
 import tests.test_gendiff
-from gendiff import gendiff
+from gendiff.gendiff import generate_diff
 
-__all__ = (gendiff, tests.test_gendiff)
+__all__ = (generate_diff, tests.test_gendiff)
