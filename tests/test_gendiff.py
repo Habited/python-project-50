@@ -2,14 +2,14 @@ from gendiff import gendiff
 
 
 def test_generate_diff_nested_yaml():
-    file = open('tests/test_data/format_stalish.txt', 'r')
+    file = open('tests/test_data/format_stylish.txt', 'r')
     assert gendiff.generate_diff(
         'tests/test_data/file1.yaml',
         'tests/test_data/file2.yaml', ) == file.read()
 
 
 def test_generate_diff_nested_json():
-    file = open('tests/test_data/format_stalish.txt', 'r')
+    file = open('tests/test_data/format_stylish.txt', 'r')
     assert gendiff.generate_diff(
         'tests/test_data/file1.json',
         'tests/test_data/file2.json') == file.read()
