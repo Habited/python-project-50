@@ -45,3 +45,4 @@ def test_generate_diff_format_json():
         'tests/test_data/file1.json',
         'tests/test_data/file2.json',
         format_name='json') == file.read()
+

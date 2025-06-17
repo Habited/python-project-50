@@ -22,7 +22,7 @@ def stalish(difference_dict: Dict[str, Dict], indent: str = '') -> str:
             lines.append(f"{indent}  - {key}: "
                          f"{stringify(node['old_value'], indent + '    ')}")
             lines.append(f"{indent}  + {key}: "
-                         f"{stringify(node['new_value'], indent)}")
+                         f"{stringify(node['new_value'], indent + '    ')}")
         else:
             lines.append(f"{indent}    {key}: "
                          f"{stringify(value, indent + '    ')}")
