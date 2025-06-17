@@ -33,12 +33,12 @@ def plain(difference_dict: Dict[str, Any],
 
 
 def stringify(value: Any) -> Any:
-    if isinstance(value, int):
-        return f'{value}'
     if value is None:
         return 'null'
     if isinstance(value, bool):
         return str(value).lower()
+    if isinstance(value, int):
+        return f'{value}'
     if not isinstance(value, dict):
         return f"'{value}'"
     if isinstance(value, dict):
