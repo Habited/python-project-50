@@ -32,7 +32,9 @@ def plain(difference_dict: Dict[str, Any],
     return '\n'.join(lines)
 
 
-def stringify(value: Any) -> str:
+def stringify(value: Any) -> Any:
+    if isinstance(value, int):
+        return f'{value}'
     if value is None:
         return 'null'
     if isinstance(value, bool):
@@ -41,3 +43,4 @@ def stringify(value: Any) -> str:
         return f"'{value}'"
     if isinstance(value, dict):
         return "[complex value]"
+
