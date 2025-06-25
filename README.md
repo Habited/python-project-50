@@ -1,7 +1,8 @@
 ### Hexlet tests and linter status
 [![Python CI](https://github.com/Habited/python-project-50/actions/workflows/pyci.yml/badge.svg)](https://github.com/Habited/python-project-50/actions/workflows/pyci.yml)
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Habited_python-project-50&metric=coverage)](https://sonarcloud.io/summary/new_code?id=Habited_python-project-50)
-[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=Habited_python-project-50&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=Habited_python-project-50)
+[![my_check](https://github.com/Habited/python-project-50/actions/workflows/my_workflow.yml/badge.svg)](https://github.com/Habited/python-project-50/actions/workflows/my_workflow.yml)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/211f3fb05430bee114cc/test_coverage)](https://codeclima
 <a href="https://codeclimate.com/github/Habited/python-project-50/test_coverage"><img src="https://api.codeclimate.com/v1/badges/e06a88c9ead2b428aabf/test_coverage" /></a>
 
 #### ascinema generate_diff
