@@ -1,7 +1,7 @@
 from typing import Any, Dict
 
 
-def stalish(difference_dict: Dict[str, Dict], indent: str = '') -> str:
+def stylish(difference_dict: Dict[str, Dict], indent: str = '') -> str:
     lines = []
     for key, node in difference_dict.items():
         node_type = node['type']
@@ -10,7 +10,7 @@ def stalish(difference_dict: Dict[str, Dict], indent: str = '') -> str:
 
         if node_type == 'nested':
             lines.append(f"{indent}    {key}: {{")
-            lines.append(stalish(children, indent + '    '))
+            lines.append(stylish(children, indent + '    '))
             lines.append(f"{indent}    }}")
         elif node_type == 'added':
             lines.append(f"{indent}  + {key}: "
